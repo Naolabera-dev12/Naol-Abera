@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+void encryptToDoc();
+void decryptFromDoc();
+int verifyPasswords();
+
+int main() {
+    printf(" Naol's Spy File Manager (SFM.NIS) \n");
+    printf("-----------------------------------------\n");
+
+    if (!verifyPasswords()) {
+        printf("Unauthorized Access! Program Terminated.\n");
+        return 0;
+    }
+
+    printf(" Access Granted. Welcome, Agent Naol.\n");
+
+    char choice;
+    while (1) {
+        printf("\n===== MAIN MENU =====\n");
+        printf("1. Encrypt & Save to Word Document\n");
+        printf("2. View Available Files\n");
+        printf("3. Decrypt & Read from Word Document\n");
+        printf("4. Exit\n");
+        printf("Enter choice: ");
+        scanf(" %c", &choice);
+
+        switch (choice) {
+            case '1': encryptToDoc(); break;
+            case '2':
+                printf("\n Files in current folder:\n");
+                system("dir *.doc"); // Windows — use "ls *.doc" for Linux/Mac
+                break;
+            case '3': decryptFromDoc(); break;
+            case '4':
+                printf(" Mission complete. Goodbye Agent.\n");
+                exit(0);
+            default: printf(" Invalid choice! Try again.\n");
+        }
+    }
+    return 0;
+}
+
+int verifyPasswords() {
+    char pass1[20], pass2[20];
+    printf("Enter main password: ");
+    scanf("%s", pass1);
+    if (strcmp(pass1, "Naol369") != 0) return 0;
+
+    printf("Enter secondary key: ");
+    scanf("%s", pass2);
+    if (strcmp(pass2, "Spy2025") != 0) return 0;
+
+    return 1;
+}
+
+void encryptToDoc() {
+    FILE *fp;
+    char filename[50], text[500];
+    int shift = 3;  // Caesar Cipher shift
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    char timestamp[100];
+    strftime(timestamp, sizeof(timestamp), "Created on: %Y-%m-%d | %I:%M %p", t);
+
+    printf("\nEnter filename (without extension): ");
+    scanf("%s", filename);
+    strcat(filename, ".doc");
+
+    fp = fopen(filename, "w");
+    if (fp == NULL) {
+        printf("Error creating file.\n");
+        return;
+    }
+
+    fprintf(fp, "%s\n\n", timestamp);
+    printf("Enter your secret message (end with ~):\n");
+    getchar();
+
+    int i = 0;
+    while ((text[i] = getchar()) != '~') {
+        text[i] = text[i] + shift;
+        fputc(text[i], fp);
+        i++;
+    }
+
+    fclose(fp);
+    printf(" File '%s' saved securely with Naolian \n", filename);
+}
+
+void decryptFromDoc() {
+    FILE *fp;
+    char filename[50];
+    int shift = 3;
+    char ch;
+
+    printf("\nEnter filename to decrypt (without extension): ");
+    scanf("%s", filename);
+    strcat(filename, ".doc");
+
+    fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf(" File not found.\n");
+        return;
+    }
+
+    printf("\n Decrypted Content:\n");
+    while ((ch = fgetc(fp)) != EOF) {
+        if (ch >= 32 && ch <= 126)
+            printf("%c", ch - shift);
+        else
+            printf("%c", ch);
+    }
+
+    fclose(fp);
+    printf("\n Decryption complete.\n");
+
+    printf("***=== Made By Ntfy Company CEO Naol Abera Lama ++++==");
+}
+
+
+/// associated or collab with my code
