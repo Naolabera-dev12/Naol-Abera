@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NTFY Portfolio v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- 🌐 Header / Navbar -->
+  <header class="bg-blue-800 text-white p-4 flex justify-between items-center">
+    <h1 class="text-3xl font-bold tracking-wide">NTFY</h1>
+    <nav class="space-x-6">
+      <a href="#home" class="hover:text-yellow-400 transition">Home</a>
+      <a href="#about" class="hover:text-yellow-400 transition">About</a>
+      <a href="#projects" class="hover:text-yellow-400 transition">Projects</a>
+      <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+    </nav>
+  </header>
+
+  <!-- 🏠 Hero Section -->
+  <section id="home" class="text-center py-16 bg-gradient-to-b from-blue-50 to-white">
+    <h2 class="text-4xl font-bold text-blue-700 mb-4">Welcome to NTFY Tech Portfolio</h2>
+    <p class="text-gray-600 mb-6">Innovating the future with Robotics, Software & Electronics</p>
+    <a href="#projects" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition hover:scale-105 inline-block">
+      View My Work
+    </a>
+  </section>
+
+  <!-- 👨‍💻 About Section -->
+  <section id="about" class="p-10 flex flex-col md:flex-row items-center justify-center">
+    <img src="photo_2025-08-03_09-01-21.jpg" alt="Naol photo" class="w-40 h-40 rounded-full border-4 border-blue-400 mb-6 md:mb-0 md:mr-10 hover:scale-105 transition">
+    <div class="max-w-lg">
+      <h3 class="text-3xl font-semibold text-blue-700 mb-3">About Naol Abera</h3>
+      <p class="text-gray-700 leading-relaxed">
+        I’m a passionate innovator from Ethiopia.  
+        I love building Robotics systems, writing clean code, and exploring creative solutions in technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- ⚙️ Projects Section -->
+  <section id="projects" class="p-10 bg-white text-center">
+    <h2 class="text-3xl font-bold text-blue-700 mb-8">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition hover:scale-105">
+        <h3 class="text-xl font-semibold mb-2">Smart Robot Arm</h3>
+        <p class="text-gray-600">Arduino-based robotic arm built for precision control.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition hover:scale-105">
+        <h3 class="text-xl font-semibold mb-2">NTFY Web App</h3>
+        <p class="text-gray-600">A personal productivity & learning assistant app.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition hover:scale-105">
+        <h3 class="text-xl font-semibold mb-2">Bio Battery</h3>
+        <p class="text-gray-600">A bio-electrical innovation using organic materials.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💬 Contact Section -->
+  <section id="contact" class="p-10 bg-blue-50 text-center">
+    <h2 class="text-3xl font-bold text-blue-700 mb-6">Contact Me</h2>
+    <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
+      <input type="text" placeholder="Your Name" class="w-full mb-4 p-3 border rounded focus:ring-2 focus:ring-blue-400 outline-none">
+      <input type="email" placeholder="Your Email" class="w-full mb-4 p-3 border rounded focus:ring-2 focus:ring-blue-400 outline-none">
+      <textarea placeholder="Your Message" class="w-full mb-4 p-3 border rounded focus:ring-2 focus:ring-blue-400 outline-none"></textarea>
+      <button type="submit" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-600 transition hover:scale-105">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- 🔚 Footer -->
+  <footer class="text-center bg-blue-900 text-white p-4 mt-10">
+    <p>© 2025 NTFY | Built by Naol Abera with ❤️ & Tailwind</p>
+  </footer>
+
+</body>
+</html>
